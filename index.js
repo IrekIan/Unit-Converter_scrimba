@@ -3,6 +3,7 @@
 1 liter = 0.264 gallon
 1 kilogram = 2.204 pound
 */
+
 let btn = document.querySelector("#convert-btn");
 // LENGTH
 let mTof = document.querySelector("#length-output-m-to-f");
@@ -17,37 +18,50 @@ let pTok = document.querySelector("#weight-output-p-to-k");
 btn.addEventListener("click", function () {
   // LENGTH
   let value = document.querySelector("#value-input").value;
-  if (value < 1) {
+  let numValue = parseFloat(value);
+  if (numValue < 1) {
     alert("Please enter a value");
     return;
   } else {
     function meterToFeet() {
-      mTof.innerHTML = `${value} meters = ${value * 3.28} feet`;
+      mTof.innerHTML = `${numValue.toFixed(2)} meters = ${(
+        numValue * 3.28
+      ).toFixed(2)} feet feet`;
     }
-    meterToFeet(value);
+    meterToFeet(numValue);
     function feetToMeter() {
-      fTom.innerHTML = `${value} feet = ${value * 0.3} meters`;
+      fTom.innerHTML = `${numValue.toFixed(2)} feet = ${(
+        numValue * 0.3
+      ).toFixed(2)} meters`;
     }
-    feetToMeter(value);
+    feetToMeter(numValue);
     // VOLUME
     function litersToGallons() {
-      lTog.innerHTML = `${value} liters = ${value * 0.26} gallons`;
+      lTog.innerHTML = `${numValue.toFixed(2)} liters = ${(
+        numValue * 0.26
+      ).toFixed(2)} gallons`;
     }
-    litersToGallons(value);
+    litersToGallons(numValue);
 
     function gallonsToLiters() {
-      gTol.innerHTML = `${value} gallons = ${value * 0.26} liters`;
+      gTol.innerHTML = `${numValue.toFixed(2)} gallons = ${(
+        numValue * 0.26
+      ).toFixed(2)} liters`;
     }
-    gallonsToLiters(value);
+    gallonsToLiters(numValue);
     // WEIGHT
     function kilogramsToPounds() {
-      kTop.innerHTML = `${value} kilograms = ${value * 2.2} pounds`;
+      kTop.innerHTML = `${numValue.toFixed(2)} kilograms = ${(
+        numValue * 2.2
+      ).toFixed(2)} pounds`;
     }
-    kilogramsToPounds(value);
+    kilogramsToPounds(numValue);
 
     function poundsToKilograms() {
-      pTok.innerHTML = `${value} pounds = ${value * 0.45} kilograms`;
+      pTok.innerHTML = `${numValue.toFixed(2)} pounds = ${(
+        numValue * 0.45
+      ).toFixed(2)} kilograms`;
     }
-    poundsToKilograms(value);
+    poundsToKilograms(numValue);
   }
 });
